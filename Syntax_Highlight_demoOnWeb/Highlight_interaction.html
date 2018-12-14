@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>highlight</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<script src="highlight.pack.js"></script>
+	<link rel="stylesheet" href="styles/tomorrow.css">
+</head>
+
+
+<script>
+		function print() {
+			//obtain input text
+			var content = document.getElementById("javaCode").innerHTML;
+			var content = document.getElementById('code').value;
+			//init and call highlightJs function
+			hljs.initHighlightingOnLoad();
+			var html = hljs.highlightAuto(content);
+			document.getElementById("language").innerHTML =  "detecting the language is: " + html.language;
+			document.getElementById("highlight_code").innerHTML = "the highlighted code is: " + html.value;
+			console.log(html.value);
+		}
+</script>
+
+<body>
+<!-- pre 常用于表现源码 -->
+<pre id="javaCode">
+// Class Declaration
+class Example
+{
+  public void bike(int i, long l, float f, 
+               double d, Object o, byte b)
+  {
+     return 0;
+  } 
+}    
+</pre>
+<pre id="C++Code">
+// Class Declaration
+class Example
+{
+  public void bike(int i, long l, float f, 
+               double d, Object o, byte b)
+  {
+     return 0;
+  } 
+}    
+</pre>
+
+
+<textarea rows="20" cols="50" id="code">here to code OR copy paste the above code to test </textarea>
+<button onclick="print();" style="color: red">print highlight</button>
+
+<p id = "language"></p>
+<p id= "highlight_code"> here to print </p>
+</body>
+</html>
